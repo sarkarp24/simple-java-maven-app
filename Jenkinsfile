@@ -24,12 +24,7 @@ pipeline {
         stage('Deliver') {
             steps {
                 //sh './jenkins/scripts/deliver.sh'
-                //deploy adapters: [tomcat7(credentialsId: 'tomcat_user', path: '', url: 'http://127.0.0.1:8888/')], contextPath: null, war: '**/*.war'
-                deploy war: 'target/*.war', 
-                        contextPath: '', 
-                        container: 'tomcat', 
-                        url: 'http://localhost:8888', 
-                        credentialsId: 'tomcat_user' 
+                deploy adapters: [tomcat7(credentialsId: 'tomcat_user', path: '', url: 'http://54.191.84.186:8080/')], contextPath: null, war: '**/*.war'
             }
         }
     }
