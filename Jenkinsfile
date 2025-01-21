@@ -23,7 +23,8 @@ pipeline {
         }
         stage('Deliver') {
             steps {
-                sh './jenkins/scripts/deliver.sh'
+                //sh './jenkins/scripts/deliver.sh'
+                deploy adapters: [tomcat7(path: '', url: 'http://localhost:8888/')], contextPath: null, war: '**/*.war'
             }
         }
     }
